@@ -13,8 +13,8 @@ mongoose.connect('mongodb+srv://dbSantiago:santti9312@santiagocluster-vrusr.mong
     keepAlive: true,
     useNewUrlParser: true,
     useCreateIndex: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true 
+    useFindAndModify: false
+    // useUnifiedTopology: true 
   })
         .then(()=>{
             console.log("conexion a la base de datos establecida");
