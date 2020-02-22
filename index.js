@@ -1,7 +1,15 @@
 'use strict'
 
+// Para subir al servidor Heraku
 
-//conexión a bdmongo cambios
+// heraku login
+
+//  git status
+//  git add .
+//  git commit -am "make it better"
+//  git push heroku master
+
+//conexión a bdmongo
 
 var mongoose = require('mongoose');
 var app = require('./app');
