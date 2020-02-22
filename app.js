@@ -5,6 +5,8 @@ var bodyParser = require('body-parser');
 
 var app = express();
 
+app.set('port',process.env.PORT || 3000);
+
 //cargar archivos rutas
 
 var project_routes = require('./routes/project');
