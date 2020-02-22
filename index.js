@@ -1,7 +1,7 @@
 'use strict'
 
 
-//conexión a bd mongo
+//conexión a bdmongo
 
 var mongoose = require('mongoose');
 var app = require('./app');
