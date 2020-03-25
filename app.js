@@ -10,10 +10,13 @@ app.set('port',process.env.PORT || 3000);
 //cargar archivos rutas
 
 var project_routes = require('./routes/project');
+var user_routes = require('./routes/user');
+
 
 //middlewares... es un metodo que se ejecuta antes de ejecutar la accion de un controlador
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
+
 
 // CORS
 
@@ -57,8 +60,7 @@ app.use((req, res, next) => {
 
 // rutas backend
 
-app.use('/api', project_routes);
-
+app.use('/api', project_routes, user_routes);
 
 // exportar
 module.exports = app;

@@ -1,7 +1,8 @@
 'use strict'
 
 var Project = require('../models/project_collection');
-var fs = require('fs')
+
+var fs = require('fs') // para el archivo
 
 var controller = {
 
@@ -27,6 +28,10 @@ var controller = {
         project.year = params.year;
         project.langs = params.langs;
         project.image = null;
+
+        // if (JSON.stringify(req.body)=='{}'){      PARA CONTROLAR SI EL BODY LLEGA VACIO
+        //     console.log("esta vacio")
+        // }
 
         project.save((err, projectStored) => {
             if (err) return res.status(500).send({
