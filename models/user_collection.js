@@ -7,7 +7,7 @@ var UserSchema = Schema({
     email: String,
     password: String
 },{
-    timestamps: true
+    timestamps: true // para data create and update datetime
 });
 
 module.exports = mongoose.model('User',UserSchema);
