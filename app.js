@@ -1,19 +1,12 @@
 'use strict'
 
 var express = require('express');
-var path = require('path');
 var bodyParser = require('body-parser');
 
 
 var app = express();
 
 app.set('port',process.env.PORT || 3000);
-
-app.use(express.static('./dist/Angular9'));
-
-app.get('/*', function(req,res) {
-    res.sendFile(path.join(__dirname,'/dist/Angular9/index.html'));
-});
 
 //cargar archivos rutas
 
