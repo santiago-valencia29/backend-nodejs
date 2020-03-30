@@ -2,7 +2,7 @@
 
 // Para subir al servidor Heraku
 
-// heraku login
+// heroku login
 
 //  git status
 //  git add .
@@ -22,7 +22,7 @@ mongoose.connect('mongodb+srv://dbSantiago:santti9312@santiagocluster-vrusr.mong
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
-    useUnifiedTopology: true  // comentado para producción
+    // useUnifiedTopology: true  // comentado para producción
   })
         .then(()=>{
             console.log("conexion a la base de datos establecida");
