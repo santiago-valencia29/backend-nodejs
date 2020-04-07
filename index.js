@@ -10,14 +10,14 @@
 //  git push heroku master
 
 //conexión a bdmongo
-
+var CONFIG = require('./config')
 var mongoose = require('mongoose');
 var app = require('./app');
 // var port = 3700
 
 mongoose.Promise = global.Promise;
-//  para base se datos local ... mongoose.connect('mongodb://localhost:27017/portafolio',{ useUnifiedTopology: true ,  useNewUrlParser: true})   // para probar http://localhost:3000/api/home
-mongoose.connect('mongodb+srv://dbSantiago:santti9312@santiagocluster-vrusr.mongodb.net/portafolio?retryWrites=true&w=majority',{
+
+mongoose.connect(CONFIG.DB,{
     keepAlive: true,
     useNewUrlParser: true,
     useCreateIndex: true,

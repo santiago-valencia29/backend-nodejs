@@ -3,6 +3,7 @@
 var express = require('express');
 var UserController = require('../controllers/user');
 var jwt = require('jsonwebtoken');
+var CONFIG = require('../config')
 
 
 var router = express.Router();
@@ -91,7 +92,7 @@ function verifyToken(req, res, next){
         return res.status(401).send('Unthorize Request');
     };
 
-    var payload = jwt.verify(token, 'secretkey');
+    var payload = jwt.verify(token, CONFIG.SECRET_TOKEN);
     // console.log(payload);
 
     req.userId = payload._id;

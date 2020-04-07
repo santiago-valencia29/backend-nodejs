@@ -3,6 +3,7 @@
 var User = require('../models/user_collection');
 var bcrypt= require('bcrypt');
 var jwt = require('jsonwebtoken');
+var CONFIG = require('..//config')
 
 
 var controller = {
@@ -16,7 +17,7 @@ var controller = {
         // console.log(user);
         await user.save(); //metodo asyncrono,  await para continuar con el proceso del servidor sin que interrumpa
         
-        var token = jwt.sign({_id: user._id}, 'secretkey')  // libreria jwt  estructura parametros: objeto- secretkey es la variable de entorno, opciones de cuanto dura el token
+        var token = jwt.sign({_id: user._id}, CONFIG.SECRET_TOKEN)  // libreria jwt  estructura parametros: objeto- secretkey es la variable de entorno, opciones de cuanto dura el token
         
         res.status(200).json({token});
         
@@ -31,7 +32,7 @@ var controller = {
         bcrypt.compare(password, user.password) //encriptación comparar
             .then(match=>{
                 if(match){ //acceso
-                    var token = jwt.sign({_id: user._id}, 'secretkey');
+                    var token = jwt.sign({_id: user._id}, CONFIG.SECRET_TOKEN);
                     return res.status(200).json({token});
                 }
                 return res.status(401).send("Wrong Password"); // No acceso

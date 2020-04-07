@@ -1,12 +1,13 @@
 'use strict'
 
+var CONFIG = require('./config')
 var express = require('express');
 var bodyParser = require('body-parser');
 
 
 var app = express();
 
-app.set('port',process.env.PORT || 3000);
+app.set('port',CONFIG.PORT);
 
 //cargar archivos rutas
 
