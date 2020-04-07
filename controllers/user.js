@@ -1,6 +1,7 @@
 'use strict'
 
 var User = require('../models/user_collection');
+var bcrypt= require('bcrypt');
 var jwt = require('jsonwebtoken');
 
 
@@ -26,12 +27,19 @@ var controller = {
         const user = await User.findOne({email}); //buscar correo en la collection
 
         if (!user) return res.status(401).send("The email doesn't exists");
-        if(user.password !== password) return res.status(401).send("Wrong Password");  //cifrar password convertirlo e igualarlo
-        
-        var token = jwt.sign({_id: user._id}, 'secretkey');
-        return res.status(200).json({token});
 
+        bcrypt.compare(password, user.password) //encriptación comparar
+            .then(match=>{
+                if(match){ //acceso
+                    var token = jwt.sign({_id: user._id}, 'secretkey');
+                    return res.status(200).json({token});
+                }
+                return res.status(401).send("Wrong Password"); // No acceso
 
+            }).catch(error=>{
+                console.log(error)
+                res.status(500).send({error})
+            });
     }
 };
 

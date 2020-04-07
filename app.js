@@ -18,7 +18,8 @@ var personal_routes = require('./routes/personal');
 
 //middlewares... es un metodo que se ejecuta antes de ejecutar la accion de un controlador
 app.use(bodyParser.urlencoded({extended:false}));
-app.use(bodyParser.json());
+app.use(bodyParser.json()); //decirle al sistema que use json
+
 
 
 // CORS
