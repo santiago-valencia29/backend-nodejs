@@ -1,7 +1,5 @@
 'use strict'
 
-// Para subir al servidor Heraku
-
 // heroku login
 
 //  git status
