@@ -27,7 +27,7 @@ var controller = {
         var {email, password} = req.body;
         const user = await User.findOne({email}); //buscar correo en la collection
 
-        if (!user) return res.status(401).send("The email doesn't exists");
+        if (!user) return res.status(401).send("El correo no exite");
 
         bcrypt.compare(password, user.password) //encriptación comparar
             .then(match=>{
@@ -35,7 +35,7 @@ var controller = {
                     var token = jwt.sign({_id: user._id}, CONFIG.SECRET_TOKEN);
                     return res.status(200).json({token});
                 }
-                return res.status(401).send("Wrong Password"); // No acceso
+                return res.status(401).send("La clave es incorrecta"); // No acceso
 
             }).catch(error=>{
                 console.log(error)

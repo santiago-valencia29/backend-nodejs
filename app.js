@@ -14,6 +14,7 @@ app.set('port',CONFIG.PORT);
 var project_routes = require('./routes/project');
 var user_routes = require('./routes/user');
 var personal_routes = require('./routes/personal');
+var cliente_routes = require('./routes/dyrcocinas/cliente');
 
 
 
@@ -65,7 +66,7 @@ app.use((req, res, next) => {
 
 // rutas backend
 
-app.use('/api', project_routes, user_routes,personal_routes);
+app.use('/api', project_routes, user_routes,personal_routes,cliente_routes);
 
 // exportar
 module.exports = app;
