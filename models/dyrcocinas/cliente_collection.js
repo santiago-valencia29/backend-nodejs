@@ -16,7 +16,7 @@ var ClienteSchema = Schema({
     cedula: {
         type: String,
         unique:true,
-        required:true
+        required:false
     },
     nombres_apellidos:{
         type: String,
