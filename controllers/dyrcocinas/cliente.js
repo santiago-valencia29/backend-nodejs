@@ -1,9 +1,10 @@
 'use strict'
 
 var Cliente = require('../../models/dyrcocinas/cliente_collection');
-
+var ColorMadecor = require('../../models/dyrcocinas/colorMadecor_collection');
 
 var controller = {
+
 
     saveCliente: function (req, res) {
         var cliente = new Cliente();
@@ -15,6 +16,7 @@ var controller = {
         cliente.nombres_apellidos = params.nombres_apellidos;
         cliente.telefono = params.telefono;
         cliente.celular = params.celular;
+        cliente.correo = params.correo;
         cliente.ciudad = params.ciudad;
         cliente.sector = params.sector;
         cliente.direccion = params.direccion;
@@ -22,12 +24,11 @@ var controller = {
         cliente.color_madekor_REL = params.color_madekor_REL;
         cliente.color_combinado_REL = params.color_combinado_REL;
         cliente.precio = params.precio;
-        cliente.anticipo_70 = params.anticipo_70;
-        cliente.resta_cliente = params.resta_cliente;
         cliente.fecha_inicio_proyecto = params.fecha_inicio_proyecto;
         cliente.fecha_entrega_proyecto = params.fecha_entrega_proyecto;
         cliente.fecha_garantia_proyecto = params.fecha_garantia_proyecto;
         cliente.desc_garantia = params.desc_garantia;
+
         // if (JSON.stringify(req.body)=='{}'){      PARA CONTROLAR SI EL BODY LLEGA VACIO
         //     console.log("esta vacio")
         // }
@@ -38,7 +39,6 @@ var controller = {
             });
 
             if (!clienteStored) return res.status(404).send({ message: 'No se ha podido guardar el cliente.' });
-
             return res.status(200).send({ cliente: clienteStored });
         });
     },
@@ -47,7 +47,7 @@ var controller = {
         var clientetId = req.params.id;
         //metodos moongose
         if (clientetId == null) return res.status(404).send({
-            message: 'El proyecto no existe'
+            message: 'El Cliente no existe'
         });
 
         Cliente.findById(clientetId, (err, cliente) => {
@@ -89,7 +89,7 @@ var controller = {
         var clienteId = req.params.id;
         var update = req.body;
 
-        Cliente.findByIdAndUpdate(clienteId, update, {new:true}, (err, clienteUpdated) => {
+        Cliente.findByIdAndUpdate(clienteId, update, { new: true }, (err, clienteUpdated) => {
             if (err) return res.status(500).send({
                 message: 'Error al actualizar'
             });
@@ -99,7 +99,7 @@ var controller = {
             });
 
             return res.status(200).send({
-                project: clienteUpdated
+                cliente: clienteUpdated
             })
         });
     },
@@ -115,7 +115,7 @@ var controller = {
                 message: 'No se puede eliminar ese cliente'
             });
             return res.status(200).send({
-                project: clienteRemoved
+                cliente: clienteRemoved
             })
         });
     }
