@@ -1,7 +1,6 @@
 'use strict'
 
 var Cliente = require('../../models/dyrcocinas/cliente_collection');
-var ColorMadecor = require('../../models/dyrcocinas/colorMadecor_collection');
 
 var controller = {
 
@@ -28,6 +27,10 @@ var controller = {
         cliente.fecha_entrega_proyecto = params.fecha_entrega_proyecto;
         cliente.fecha_garantia_proyecto = params.fecha_garantia_proyecto;
         cliente.desc_garantia = params.desc_garantia;
+        cliente.coti_ferreteria = params.coti_ferreteria;
+        cliente.coti_madecor = params.coti_madecor;
+
+
 
         // if (JSON.stringify(req.body)=='{}'){      PARA CONTROLAR SI EL BODY LLEGA VACIO
         //     console.log("esta vacio")

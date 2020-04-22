@@ -80,6 +80,14 @@ var ClienteSchema = Schema({
     desc_garantia: {
         type: String,
         required: false
+    },
+    coti_ferreteria:{
+        type:[],
+        required: false
+    },
+    coti_madecor:{
+        type:[],
+        required: false
     }
 }, {
     timestamps: true // para data create and update datetime
