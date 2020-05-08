@@ -1,13 +1,15 @@
 'use strict'
 
-var CONFIG = require('./config')
-var express = require('express');
-var bodyParser = require('body-parser');
+var CONFIG = require('./config');
 
+var path = require('path')
+var express = require('express');
+var bodyParser = require('body-parser'); // para usar formato json
 
 var app = express();
 
 app.set('port',CONFIG.PORT);
+
 
 //cargar archivos rutas
 
@@ -20,6 +22,7 @@ var colorMadecor_routes = require('./routes/dyrcocinas/colorMadecor');
 
 
 
+app.use(express.static(path.join(__dirname,'public')));
 
 
 //middlewares... es un metodo que se ejecuta antes de ejecutar la accion de un controlador
