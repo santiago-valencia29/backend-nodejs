@@ -1,11 +1,11 @@
 'use strict'
 
-// heroku login develop
+// heroku login develop git heroku
 
 //  git status
 //  git add .
 //  git commit -am "make it better"
-//  git push heroku master
+//  git push heroku master 
 
 //conexión a bdmongo
 var CONFIG = require('./config')
